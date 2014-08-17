@@ -48,6 +48,8 @@ exports.parallel = function (array) {
     };
 
     for (var y = 0; y < array.length; y++) {
+
+
         (function (h, callback) {
             array[h](function (err, res) {
                 errorArray[h] = err;
@@ -55,5 +57,7 @@ exports.parallel = function (array) {
                 done(array.length, errorArray, resultArray, callback);
             });
         })(y, arguments[1]);
+
+
     }
 };
